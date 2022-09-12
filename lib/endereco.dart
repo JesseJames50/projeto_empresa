@@ -7,14 +7,14 @@ class Endereco {
   String rua;
   String numero;
 
-  Endereco(
+  Endereco({
     
-    this.cep,
-    this.bairro,
-    this.cidade,
-    this.estado,
-    this.rua,
-    this.numero,
-  );
+    required this.cep,
+    required this.bairro,
+    required this.cidade,
+    required this.estado,
+    required this.rua,
+    required this.numero,
+});
 
 }

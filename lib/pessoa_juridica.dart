@@ -7,9 +7,10 @@ class PessoaJuridica extends Pessoa {
   String cnpj;
   String telefone;
   List<dynamic> endereco;
+  List<dynamic> socio;
  
   PessoaJuridica(
-    this.endereco, {
+    this.endereco, this.socio, {
     required this.nomeFantasia,
     required this.razaoSocial,
     required this.cnpj,
