@@ -45,8 +45,15 @@ coleta_pessoajuridica(){
   
     print("\n");
     print("Cadastro do Endereço:");
-    stdout.write("Qual o CEP? ");
+    stdout.write("Qual o CEP? (Digite apenas números)");
     cep = stdin.readLineSync()!;
+    if (verificar_cep(cep) =='invalido'){
+    print("O CEP é inválido. Gentileza digitar novamente!");
+    stdout.write("Qual o CEP?");
+    cep = stdin.readLineSync()!;
+    } else {
+    cep = cep;
+    };
     stdout.write("Qual a RUA? ");
     rua = stdin.readLineSync()!;
     stdout.write("Qual o NÚMERO? ");
@@ -136,6 +143,13 @@ coleta_pessoafisica(){
   print("Cadastro do Endereço Pessoa Física:");
   stdout.write("Qual o CEP? ");
   cep = stdin.readLineSync()!;
+  if (verificar_cep(cep) =='invalido'){
+    print("O CEP é inválido. Gentileza digitar novamente!");
+    stdout.write("Qual o CEP?");
+    cep = stdin.readLineSync()!;
+  } else {
+    cep = cep;
+  };
   stdout.write("Qual a RUA? ");
   rua = stdin.readLineSync()!;
   stdout.write("Qual o NÚMERO? ");

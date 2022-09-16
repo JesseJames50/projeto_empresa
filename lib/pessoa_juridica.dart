@@ -28,7 +28,7 @@ class PessoaJuridica extends Pessoa {
     
   @override
   toString() {
-    return ('Razão Social: $razaoSocial  CNPJ: ${CNPJ.format(cnpj)}');
+    return ('ID: $pessoaId Razão Social: $razaoSocial  CNPJ: ${CNPJ.format(cnpj)}');
   }
 }
 
