@@ -1,6 +1,4 @@
-import 'dart:convert';
 import 'dart:io';
-import 'package:projeto_empresa/cadastro.dart';
 import 'package:projeto_empresa/coleta_dados.dart';
 
 import 'impressao_dados.dart';

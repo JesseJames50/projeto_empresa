@@ -36,7 +36,6 @@ void imprime_empresa(String cnpj){
     }
    
   }
-
  
 }
 
@@ -139,6 +138,7 @@ void alfabetica_juridica(){
   
   print("\n");
   print("Lista das Empresas por Ordem Alfabetica( ID - Razão Social - CNPJ) ");
+  print("_________________________________________________________________) ");
  
   listapessoasJuridicas.sort((a,b) => a.razaoSocial.compareTo(b.razaoSocial));
   for(var list in listapessoasJuridicas){
@@ -151,8 +151,7 @@ void deletar_juridica(){
 
   print("\n");
   print("-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-");
-  stdout.write("Qual empresa pretende deletar? (Digite CNPJ apenas números) ");
-  
+  stdout.write("Qual empresa pretende deletar? (Digite CNPJ apenas números) ");  
 
   listapessoasJuridicas.sort((a,b) => a.razaoSocial.compareTo(b.razaoSocial));
   for(var list in listapessoasJuridicas){
@@ -160,8 +159,7 @@ void deletar_juridica(){
   }
   String cnpj = stdin.readLineSync()!;
   int indice = listapessoasJuridicas.indexWhere((id)=> id.cnpj == cnpj);
-  print("O indice é: $indice");  //imprime_empresa(indice);
-
+  
   listapessoasJuridicas.removeAt(indice);
   print("Registro ${CNPJ.format(cnpj)} deletado com sucesso!");
 

@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:projeto_empresa/menu.dart';
-import 'package:projeto_empresa/pessoa_juridica.dart';
 import 'package:projeto_empresa/verificacao.dart';
 import 'cadastro.dart';
 import 'cpfcnpj.dart';
@@ -53,7 +52,7 @@ coleta_pessoajuridica(){
     cep = stdin.readLineSync()!;
     } else {
     cep = cep;
-    };
+    }
     stdout.write("Qual a RUA? ");
     rua = stdin.readLineSync()!;
     stdout.write("Qual o NÚMERO? ");
@@ -100,7 +99,10 @@ coleta_pessoajuridica(){
   print("-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-");
   imprime_empresa(cnpj);
   print("Cadastro Pessoa Jurídica realizado com sucesso!");
+  
+  verifica_cadastrodocumento(documento); 
   menu_principal();
+
 } //fecha função coleta_pessoajuridica
 
 coleta_pessoafisica(){
@@ -147,7 +149,7 @@ coleta_pessoafisica(){
     cep = stdin.readLineSync()!;
   } else {
     cep = cep;
-  };
+  }
   stdout.write("Qual a RUA? ");
   rua = stdin.readLineSync()!;
   stdout.write("Qual o NÚMERO? ");

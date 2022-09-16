@@ -34,35 +34,7 @@ void cadastro_empresa(String nomeFantasia, String razaoSocial,String cnpj, Strin
 }
 
 
-void cadastro_endereco(int index, int tipopessoa, String cep, String bairro,  String cidade, String estado, String rua, String numero){
-   
-  //cadastra endereço da empresa pelo tipoPessoa 1 - juridica
-if (tipopessoa ==1){ 
-  
-  var pessoajuridica = pessoasJuridicas[index].enderecoJuridica.add(EnderecoJuridica(cep: cep, bairro: bairro, cidade: cidade, estado: estado, rua: rua, numero: numero));
-  
-  print(pessoasJuridicas[index].enderecoJuridica[0]);
-  print(pessoasJuridicas[index].enderecoJuridica[2]);
-  }
-//cadastra endereço da pessoa pelo tipoPessoa 2 - Fisica
-if (tipopessoa ==2){
-  
-  final listaEndereco =
-   pessoasFisicas[index].enderecoFisica.add(EnderecoFisica(cep: cep, bairro: bairro, cidade: cidade, estado: estado, rua: rua, numero: numero));
-  }
 
-}
-
-void cadastro_socio(int index, dynamic documento){
-
-pessoaSocio.clear(); //limpa lista de endereço
-  
-if (pessoaSocio.isEmpty == true){
-  
-   pessoasJuridicas[index].socio = [documento];
-}
-
-}
 
 void cadastro_pfisica(String nomePessoa, String cpf, String telefone, String cep, String bairro,  String cidade, String estado, String rua, String numero){
   
