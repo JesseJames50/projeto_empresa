@@ -94,8 +94,6 @@ coleta_pessoajuridica(){
     } while (validasocio != 1);
       
       
-    //dados_empresa(pessoasJuridicas.lastIndexOf(pessoasJuridicas.last));
-    //final index = pessoasJuridicas.indexWhere((id)=> id.cnpj == cnpj);
   cadastro_empresa(nomeFantasia, razaoSocial, cnpj, telefone,
       cep, bairro,  cidade, estado, rua, numero, documento);
   

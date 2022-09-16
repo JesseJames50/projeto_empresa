@@ -40,35 +40,6 @@ void imprime_empresa(String cnpj){
  
 }
 
-// void dados_endereco(int index){
-
-//   var listaEndereco = pessoasJuridicas[index].enderecoJuridica;
-//   print("Endereço:");
-//   print("Rua:    ${listaEndereco[4]}");
-//   print("numero: ${listaEndereco[5]}");
-//   print("bairro: ${listaEndereco[1]}");
-//   print("Cidade: ${listaEndereco[2]}");
-//   print("Estado: ${listaEndereco[3]}");
-//   print("CEP:    ${listaEndereco[0]}");
-//   print("\n:");
-// }
-
-// void dados_socio(int index){
-
-//   var listaEndereco = pessoasJuridicas[index].enderecoJuridica;
-//   if (listaEndereco.isNotEmpty == true){
-//       print("Endereço:");
-//       print("Rua:    ${listaEndereco[4]}");
-//       print("numero: ${listaEndereco[5]}");
-//       print("bairro: ${listaEndereco[1]}");
-//       print("Cidade: ${listaEndereco[2]}");
-//       print("Estado: ${listaEndereco[3]}");
-//       print("CEP:    ${listaEndereco[0]}");
-//       print("\n:"); 
-//   } else {
-//     print("Não há endereço cadastrado para a empresa.");
-//   }
-//  }
 
  void dados_pessoaFisica(String cpf){
 
