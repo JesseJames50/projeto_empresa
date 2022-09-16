@@ -1,4 +1,7 @@
 import 'package:projeto_empresa/pessoa.dart';
+import 'cpfcnpj.dart';
+import 'endereco.dart';
+import 'socio.dart';
 
 class PessoaJuridica extends Pessoa {
 
@@ -6,19 +9,26 @@ class PessoaJuridica extends Pessoa {
   String razaoSocial;
   String cnpj;
   String telefone;
-  List<dynamic> endereco;
-  List<dynamic> socio;
+  List<EnderecoJuridica> enderecoJuridica;
+  List<PessoaSocio> socio;
  
   PessoaJuridica(
-    this.endereco, this.socio, {
+    {
     required this.nomeFantasia,
     required this.razaoSocial,
     required this.cnpj,
     required this.telefone,   
+    required this.enderecoJuridica,
+    required this.socio,
     required super.pessoaId,
     required super.pessoaTipo,
     required super.dataCadastro,
-    });
 
+    });
+    
+  @override
+  toString() {
+    return ('Razão Social: $razaoSocial  CNPJ: ${CNPJ.format(cnpj)}');
+  }
 }
 

@@ -1,172 +1,103 @@
-import 'dart:io';
 import 'package:projeto_empresa/endereco.dart';
 import 'package:projeto_empresa/pessoa_fisica.dart';
 import 'package:projeto_empresa/pessoa_juridica.dart';
 import 'package:projeto_empresa/socio.dart';
 import 'package:uuid/uuid.dart';
 
+var listapessoasJuridicas = [];
+var listapessoasFisicas = [];
 List<PessoaJuridica> pessoasJuridicas =[];
 List<PessoaFisica> pessoasFisicas=[];
-List<Endereco> endereco=[];
 List<PessoaSocio> pessoaSocio=[];
+List<EnderecoFisica> enderecoFisica=[];
+List<EnderecoJuridica> enderecoJuridica=[];
 
 
-void cadastro_empresa(String nomeFantasia, String razaoSocial,String cnpj, String telefone){
-  var endereco = [];
-  var socio = [];
-
-// String  nomeFantasia;
-// String  razaoSocial;
-// String  cnpj;
-// String  telefone;
-// int  pessoaTipo;
-// DateTime dataCadastro;
-
-// stdout.write("Qual o NOME DE FANTASIA da Empresa?");
-// nomeFantasia = stdin.readLineSync()!;
-// stdout.write("Qual a RAZÃO SOCIAL da Empresa?");
-// razaoSocial = stdin.readLineSync()!;
-// stdout.write("Qual o CNPJ da Empresa?");
-// cnpj = stdin.readLineSync()!;
-// stdout.write("Qual o TELEFONE da Empresa?");
-// telefone = stdin.readLineSync()!;
-// pessoaTipo = 1;
-// dataCadastro = DateTime.now();
-
-
-
+void cadastro_empresa(String nomeFantasia, String razaoSocial,String cnpj, String telefone,
+       String cep, String bairro,  String cidade, String estado, String rua, String numero, String documento){
+  
   final pessoaJuridica =
-  pessoasJuridicas.add(
-    PessoaJuridica(
-      pessoaId: Uuid().v1(),
-      nomeFantasia: nomeFantasia,
-      razaoSocial: razaoSocial,
-      cnpj: cnpj,
-      telefone: telefone,
-      pessoaTipo: 1,
-      dataCadastro:DateTime.now(),
-      endereco,
-      socio
-      )
-    );
+      PessoaJuridica(
+        nomeFantasia: nomeFantasia,
+        razaoSocial: razaoSocial,
+        cnpj: cnpj,
+        telefone: telefone,
+        enderecoJuridica: [EnderecoJuridica(cep: cep, bairro: bairro, cidade: cidade, estado: estado, rua: rua, numero: numero)],
+        socio: [PessoaSocio(documento: documento)],
+        pessoaId: Uuid().v1(),
+        pessoaTipo: 1,
+        dataCadastro:DateTime.now(),      
+      );
+
+  
+  listapessoasJuridicas.add(pessoaJuridica);
 }
 
 
-void cadastro_endereco(String  registro, int tipopessoa, String cep, String bairro,  String cidade, String estado,String rua,String numero){
-
-  // String cep;
-  // String bairro;
-  // String cidade;
-  // String estado;
-  // String rua;
-  // String numero;
-
-  // stdout.write("Qual o CEP da localidade?");
-  // cep = stdin.readLineSync()!;
-  // stdout.write("Qual o bairro?");
-  // bairro = stdin.readLineSync()!;
-  // stdout.write("Qual a cidade?");
-  // cidade = stdin.readLineSync()!;
-  // stdout.write("Qual o Estado?");
-  // estado = stdin.readLineSync()!;
-  // stdout.write("Qual a rua?");
-  // rua = stdin.readLineSync()!;
-  // stdout.write("Qual o CNPJ da Empresa?");
-  // numero = stdin.readLineSync()!;
-
+void cadastro_endereco(int index, int tipopessoa, String cep, String bairro,  String cidade, String estado, String rua, String numero){
   // final cadastroEndereco
-  endereco.clear(); //limpa lista endereço
-//cadastra endereço da empresa pelo tipoPessoa 1 - juridica
-if (endereco.isEmpty == true && tipopessoa ==1){
-  final index = pessoasJuridicas.indexWhere((id)=> id.pessoaId == registro);
-  final listaEndereco =
-  endereco.add(
-    Endereco(
-    cep: cep,
-    bairro: bairro,
-    cidade: cidade,
-    estado: estado,
-    rua: rua,
-    numero: numero)
-    );
-   pessoasJuridicas[index].endereco = [cep, bairro, cidade, estado, rua, numero];
+ 
+  //cadastra endereço da empresa pelo tipoPessoa 1 - juridica
+if (tipopessoa ==1){ 
+  //final index = pessoasJuridicas.indexWhere((id)=> id.pessoaId == registro);
+  //var listaEndereco = endereco.add(cadastroEndereco(cep, bairro, cidade, estado, rua, numero));
+    //pessoasJuridicas[index].endereco.add(cadastroEndereco(cep, bairro, cidade, estado, rua, numero));  
+  // pessoasJuridicas[index].endereco = endereco;
+  //pessoasJuridicas[index].endereco.add(cadastroEndereco(cep, bairro, cidade, estado, rua, numero));
+  //var novoEndereco = pessoasJuridicas[index].endereco.add(Endereco(cep: cep, bairro: bairro, cidade: cidade, estado: estado, rua: rua, numero: numero));
+  var pessoajuridica = pessoasJuridicas[index].enderecoJuridica.add(EnderecoJuridica(cep: cep, bairro: bairro, cidade: cidade, estado: estado, rua: rua, numero: numero));
+  // [index].endereco.add(cep: cep, bairro: bairro, cidade: cidade, estado: estado, rua: rua, numero: numero);
+  print(pessoasJuridicas[index].enderecoJuridica[0]);
+  print(pessoasJuridicas[index].enderecoJuridica[2]);
   }
 //cadastra endereço da pessoa pelo tipoPessoa 2 - Fisica
-if (endereco.isEmpty == true && tipopessoa ==2){
-  final index = pessoasFisicas.indexWhere((id)=> id.pessoaId == registro);
+if (tipopessoa ==2){
+  //final index = pessoasFisicas.indexWhere((id)=> id.pessoaId == registro);
   final listaEndereco =
-  endereco.add(
-    Endereco(
-    cep: cep,
-    bairro: bairro,
-    cidade: cidade,
-    estado: estado,
-    rua: rua,
-    numero: numero)
-    );
-   pessoasFisicas[index].endereco = [cep, bairro, cidade, estado, rua, numero];
+  // EnderecoFisica.add(
+  //   Endereco(
+  //   cep: cep,
+  //   bairro: bairro,
+  //   cidade: cidade,
+  //   estado: estado,
+  //   rua: rua,
+  //   numero: numero)
+  //   );
+   pessoasFisicas[index].enderecoFisica.add(EnderecoFisica(cep: cep, bairro: bairro, cidade: cidade, estado: estado, rua: rua, numero: numero));
   }
 
 }
 
+void cadastro_socio(int index, dynamic documento){
 
-void cadastro_socio(String  registro, String nomeSocio, String documento){
-
-  // String nomeSocio;
-  // String documento;
-
-  // stdout.write("Qual o nome do sócio?");
-  // nomeSocio = stdin.readLineSync()!;
-  // stdout.write("Qual o documento CPF/CNPJ?");
-  // documento = stdin.readLineSync()!;
-
-  // final cadastroEndereco
-  pessoaSocio.clear(); //limpa lista de endereço
+pessoaSocio.clear(); //limpa lista de endereço
   
 if (pessoaSocio.isEmpty == true){
-  final index = pessoasJuridicas.indexWhere((id)=> id.pessoaId == registro);
+  //int indice = pessoasJuridicas.indexWhere((id)=> id.cnpj == index);
   // final listaSocio = pessoaSocio.add(
   //   PessoaSocio(
   //     nomeSocio: nomeSocio,
   //     documento: documento)
   // );
-   pessoasJuridicas[index].socio = [nomeSocio, documento];
+   pessoasJuridicas[index].socio = [documento];
 }
 
 }
 
-void cadastro_pfisica(String nomePessoa, String cpf,String cnpj, String telefone){
-  var endereco = [];
- 
-// String  nomeFantasia;
-// String  razaoSocial;
-// String  cnpj;
-// String  telefone;
-// int  pessoaTipo;
-// DateTime dataCadastro;
-
-// stdout.write("Qual o NOME DE FANTASIA da Empresa?");
-// nomeFantasia = stdin.readLineSync()!;
-// stdout.write("Qual a RAZÃO SOCIAL da Empresa?");
-// razaoSocial = stdin.readLineSync()!;
-// stdout.write("Qual o CNPJ da Empresa?");
-// cnpj = stdin.readLineSync()!;
-// stdout.write("Qual o TELEFONE da Empresa?");
-// telefone = stdin.readLineSync()!;
-// pessoaTipo = 1;
-// dataCadastro = DateTime.now();
-
-
-
-  final pessoasFisicas =
+void cadastro_pfisica(String nomePessoa, String cpf, String telefone, String cep, String bairro,  String cidade, String estado, String rua, String numero){
+  
+  final pessoaFisica = 
     PessoaFisica(
-      [],
       pessoaId: Uuid().v1(),
       nomePessoa: nomePessoa,
       cpf: cpf,
       telefone: telefone,
       pessoaTipo: 2,
-      dataCadastro:DateTime.now()    
-      )
-    ;
+      dataCadastro:DateTime.now(),
+      enderecoFisica: [EnderecoFisica(cep: cep, bairro: bairro, cidade: cidade, estado: estado, rua: rua, numero: numero)],
+      );
+
+      //listapessoasJuridicas.add(pessoaJuridica);
+      listapessoasFisicas.add(pessoaFisica);
 }
+

@@ -1,0 +1,65 @@
+import 'package:projeto_empresa/cadastro.dart';
+import 'package:projeto_empresa/endereco.dart';
+import 'package:projeto_empresa/menu.dart';
+import 'package:projeto_empresa/pessoa_juridica.dart';
+import 'package:projeto_empresa/socio.dart';
+import 'package:uuid/uuid.dart';
+
+void main(){
+  //print("\x1B[2J\x1B[0;0H");
+  //menu_principal();
+  
+
+var pessoaJuridica = PessoaJuridica(
+    nomeFantasia: 'Marcelo Drinks',
+    razaoSocial: 'Menezão',
+    cnpj: '11941838000104',
+    telefone: '84998332801',
+    enderecoJuridica: [EnderecoJuridica(bairro: 'Bola', cep: '4545', cidade: 'Natal', estado: '454', numero: '454', rua: '54545',),
+                      EnderecoJuridica(bairro: 'Bila', cep: '65656565', cidade: 'Jauru', estado: '454', numero: '454', rua: '54545',)],
+    socio: [PessoaSocio(documento:'23976799300')],
+    pessoaId: Uuid().v1(),
+    pessoaTipo: 1,
+    dataCadastro:DateTime.now(),      
+);
+var pessoaJuridica2 = PessoaJuridica(
+    nomeFantasia: 'Todinho Drinks',
+    razaoSocial: 'Primo Menezão',
+    cnpj: '11941838000104',
+    telefone: '84998332801',
+    enderecoJuridica: [EnderecoJuridica(bairro: 'Bola', cep: '4545', cidade: 'Natal', estado: '454', numero: '454', rua: '54545',),
+                      EnderecoJuridica(bairro: 'Bila', cep: '65656565', cidade: 'Jauru', estado: '454', numero: '454', rua: '54545',)],
+    socio: [PessoaSocio(documento:'23976799300')],
+    pessoaId: Uuid().v1(),
+    pessoaTipo: 1,
+    dataCadastro:DateTime.now(),      
+);
+  
+  var lista = [];
+  lista.add(pessoaJuridica);
+  lista.add(pessoaJuridica2);
+ //var lista = [pessoaJuridica, pessoaJuridica2];
+  
+  var listaPessoas = lista.map((pessoa){
+    print("o bairro é: ${pessoa.enderecoJuridica[0].bairro}");
+    print("Esta é uma pessoa: ${pessoa.cnpj}");    
+    return pessoa;
+  });
+
+  for (var pessoa in listaPessoas) {
+    print("o valor é: ${pessoa.cnpj}");
+  }
+  int index = lista.indexWhere((id)=> id.cnpj == '11941838000104');
+  print("O indice é: $index");
+
+  // print("a lista possui ${pessoasJuridicas.indexWhere((pessoajuridica) => print(pessoajuridica.cnpj));
+// print(pessoaJuridica.nomeFantasia);
+// print(pessoaJuridica.cnpj);
+// print(pessoaJuridica.pessoaId);
+// print(pessoaJuridica.enderecoJuridica[0].bairro);
+// print(pessoaJuridica2.nomeFantasia);
+// print(pessoaJuridica2.pessoaId);
+// print(pessoaJuridica2.enderecoJuridica[0].bairro);
+// //print("O indice é: $indice");
+
+}
