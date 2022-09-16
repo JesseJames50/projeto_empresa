@@ -1,6 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:projeto_empresa/cadastro.dart';
+import 'package:projeto_empresa/coleta_dados.dart';
+
+import 'impressao_dados.dart';
 
 void menu_principal(){
 
@@ -14,30 +17,49 @@ int resposta = 0;
   MENU PRINCIPAL
   1.Cadastrar Pessoa Jurídica 
   2.Cadastrar Pessoa Física 
-  3.Cadastrar Sócio Empresa
-  4.Cadastrar Endereço Pessoa Juridica
-  5.Cadastrar Endereço Pessoa Física
-  6.Buscar Empresa cadastrada por CNPJ
-  7.Buscar Empresa por CPF do Sócio
-  8.Listar Empresas cadastradas em ordem alfabética(Razão Social)
-  9.Excluir uma empresa (por ID)
-  10.Sair do Sistema
+  3.Buscar Empresa por CNPJ
+  4.Buscar Empresa cadastrada por CPF/CNPJ do Sócio
+  5.Listar Empresas cadastradas em ordem alfabética(Razão Social)
+  6.Deletar Pessoa Jurídica
+  7.Sair do Sistema
   Escolha uma das opões: ''');
+
   int resposta = int.parse(stdin.readLineSync()!);
 
-  } while (resposta == 10);
+  switch(resposta){
+    //chama a função de coleta de dados pessoa juridica no arquivo coleta_dados
+    case 1:    
+    coleta_pessoajuridica();
+	  break;
+     //chama a função de coleta de dados pessoa fisica no arquivo coleta_dados
+    case 2:   
+    coleta_pessoafisica();
+	  break;
+    
+    case 3:
+    dados_cnpj();
+	  break;
+    
+    case 4:
+    dados_socio();
+	  break;
+
+    case 5:
+    alfabetica_juridica();
+	  break;
+
+    case 6:
+    deletar_juridica();
+	  break;
+    
+
+    case 7:
+    resposta == 7;
+	  break;
+    }
+
+  } while (resposta == 7);
+
 } //encerra menu principal
 
 
-void menu_cadastro(){
-
-stdout.write("Qual o tipo de cadastro que deseja realizar? (1-pessoa física, 2-pessoa jurídica): ");
-var input = int.parse(stdin.readLineSync()!);
-
-if (input ==1){
-  // cadastro_empresa();
-} else {
-  stdout.write("Opção ainda não cadastrada!");
-}
-
-}
