@@ -12,6 +12,16 @@ Não foi utilizado banco de dados para as informações em razão do exercício 
 
 * Github
 
+## Requisitos do Projeto
+
+* O sistema ao ser executado deve oferecer as seguintes opções:
+1.	Cadastrar uma nova empresa;
+2.	Buscar Empresa cadastrada por CNPJ;
+3.	Buscar Empresa por CPF do Sócio;
+4.	Listar Empresas cadastradas em ordem alfabética (baseado na Razão Social);
+5.	Excluir uma empresa (por ID);
+6.	Sair.
+
 ## Recursos utilizados no Projeto
 
 * Dependências
@@ -19,7 +29,8 @@ Não foi utilizado banco de dados para as informações em razão do exercício 
   
 * Recursos de Terceiros
   - Para verificação de CPF e CNPJ foi utilizado códigos disponibilizados no GitHub por THIAGO PEREIRA MARTINEZ
-    (https://github1s.com/thiagopereiramartinez/dart-cpfcnpj/blob/HEAD/lib/cpfcnpj.dart#L1-L10)
+    (https://github1s.com/thiagopereiramartinez/dart-cpfcnpj/blob/HEAD/lib/cpfcnpj.dart#L1-L10)    
+ 
   
  ## Versão
 
