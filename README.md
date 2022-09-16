@@ -6,8 +6,7 @@
 
 O projeto foi desenvolvido na linguagem Dart, como um exercício proposto no curso de Flutter realizado pela PROZ EDUCAÇÃO - CURSOS TÉCNICOS E PROFISSIONALIZANTES, aproveitando os principais conceitos da linguagem e com foco na orientação a objeto.
 
-Não foi utilizado banco de dados para as informações em razão do exercício buscar realizar a manipulação de listas e demais conceitos
-aplicáveis à linguagem Dart.
+Não foi utilizado banco de dados para as informações em razão do exercício buscar realizar a manipulação de listas e demais conceitos aplicáveis à linguagem Dart.
 
 ## Serviços Utilizados
 
@@ -19,8 +18,8 @@ aplicáveis à linguagem Dart.
   - uuid: ^3.0.6
   
 * Recursos de Terceiros
-  - Para verificação de CPF e CNPJ foi utilizado códigos disponibilizados no GIT HUB por THIAGO PEREIRA MARTINEZ
-  (https://github1s.com/thiagopereiramartinez/dart-cpfcnpj/blob/HEAD/lib/cpfcnpj.dart#L1-L10)
+  - Para verificação de CPF e CNPJ foi utilizado códigos disponibilizados no GitHub por THIAGO PEREIRA MARTINEZ
+    (https://github1s.com/thiagopereiramartinez/dart-cpfcnpj/blob/HEAD/lib/cpfcnpj.dart#L1-L10)
   
  ## Versão
 
